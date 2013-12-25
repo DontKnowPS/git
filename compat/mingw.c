@@ -5,10 +5,6 @@
 #include "../cache.h"
 #include "../run-command.h"
 
-#ifndef THREAD_LOCAL
-#define THREAD_LOCAL __thread
-#endif
-
 unsigned int _CRT_fmode = _O_BINARY;
 static const int delay[] = { 0, 1, 10, 20, 40 };
 
@@ -1306,7 +1302,7 @@ static void socket_cleanup(void)
 static void ensure_socket_initialization(void)
 {
 	WSADATA wsa;
-	static THREAD_LOCAL int initialized = 0;
+	static int initialized = 0;
 	const char *libraries[] = { "ws2_32.dll", "wship6.dll", NULL };
 	const char **name;
 

@@ -3,6 +3,4 @@
 #include <conio.h>
 #include "../strbuf.h"
 
-#define THREAD_LOCAL _declspec(thread)
-
 #include "mingw.c"
